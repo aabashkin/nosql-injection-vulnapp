@@ -505,4 +505,4 @@ MongoCursor<Document> cursor = collection.find(query).iterator();
 This program is free software: you can redistribute it and/or modify it under the terms of the [MIT license](LICENSE).
 NIVA and any contributions are Copyright © of Anton Abashkin & fellow project contributors (2022).
 
-[![HitCount](http://hits.dwyl.com/{username}/{project-name}.svg)](http://hits.dwyl.com/{username}/{project-name})
+[![HitCount](http://hits.dwyl.com/aabashkin/nosql-injection-vulnapp.svg)](http://hits.dwyl.com/aabashkin/nosql-injection-vulnapp)
