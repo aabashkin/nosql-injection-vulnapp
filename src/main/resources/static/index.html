@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>NoSQL Vulnerable App (NIVA) | MongoDB + Java Driver edition</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+<style>
+    img {
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    </style>
+</head>
+
+<body>
+    <img src="img/niva_logo.png" width="50%" class="center">
+    <table class="table table-striped">
+        <tr>
+            <th>Java Method</th>
+            <th></th>
+            <th>Regular Input (Insecure)</th>
+            <th>Injection (Insecure)</th>
+            <th>Regular Input (Secure)</th>
+            <th>Injection (Insecure)</th>
+        </tr>
+        <tr>
+            <td>BasicDBObject::put</td>
+            <td></td>
+            <td><a href="insecure/basicdbobject-put/contacts/search?email=contact1@private.info">Request</a></td>
+            <td><a href="insecure/basicdbobject-put/contacts/search?email=%22%20%7C%7C%20%220%22%20!%3D%20%221">Request</a></td>
+            <td><a href="secure/basicdbobject-put/contacts/search?email=contact1@private.info">Request</a></td>
+            <td><a href="secure/basicdbobject-put/contacts/search?email=%22%20%7C%7C%20%220%22%20!%3D%20%221">Request</a></td>
+        </tr>
+        <tr>
+            <td>BasicDBObject::putAll</td>
+            <td></td>
+            <td><a href="insecure/basicdbobject-putall/contacts/search?email=contact1@private.info">Request</a></td>
+            <td><a href="insecure/basicdbobject-putall/contacts/search?email=%22%20%7C%7C%20%220%22%20!%3D%20%221">Request</a></td>
+            <td><a href="secure/basicdbobject-putall/contacts/search?email=contact1@private.info">Request</a></td>
+            <td><a href="secure/basicdbobject-putall/contacts/search?email=%22%20%7C%7C%20%220%22%20!%3D%20%221">Request</a></td>
+        </tr>
+        <tr>
+            <td>BasicDBObject::append</td>
+            <td></td>
+            <td><a href="insecure/basicdbobject-append/contacts/search?email=contact1@private.info">Request</a></td>
+            <td><a href="insecure/basicdbobject-append/contacts/search?email=%22%20%7C%7C%20%220%22%20!%3D%20%221">Request</a></td>
+            <td><a href="secure/basicdbobject-append/contacts/search?email=contact1@private.info">Request</a></td>
+            <td><a href="secure/basicdbobject-append/contacts/search?email=%22%20%7C%7C%20%220%22%20!%3D%20%221">Request</a></td>
+        </tr>
+        <tr>
+            <td>BasicDBObject::parse</td>
+            <td></td>
+            <td><a href="insecure/basicdbobject-parse/contacts/search?email=contact1@private.info">Request</a></td>
+            <td><a href="insecure/basicdbobject-parse/contacts/search?email=%22%20%7C%7C%20%220%22%20!%3D%20%221">Request</a></td>
+            <td><a href="secure/basicdbobject-parse/contacts/search?email=contact1@private.info">Request</a></td>
+            <td><a href="secure/basicdbobject-parse/contacts/search?email=%22%20%7C%7C%20%220%22%20!%3D%20%221">Request</a></td>
+        </tr>
+        <tr>
+            <td>BasicDBObject(String, Object)</td>
+            <td></td>
+            <td><a href="insecure/basicdbobject-constructor-kv/contacts/search?email=contact1@private.info">Request</a></td>
+            <td><a href="insecure/basicdbobject-constructor-kv/contacts/search?email=%22%20%7C%7C%20%220%22%20!%3D%20%221">Request</a></td>
+            <td><a href="secure/basicdbobject-constructor-kv/contacts/search?email=contact1@private.info">Request</a></td>
+            <td><a href="secure/basicdbobject-constructor-kv/contacts/search?email=%22%20%7C%7C%20%220%22%20!%3D%20%221">Request</a></td>
+        </tr>
+        <tr>
+            <td>BasicDBObject(Map)</td>
+            <td></td>
+            <td><a href="insecure/basicdbobject-constructor-map/contacts/search?email=contact1@private.info">Request</a></td>
+            <td><a href="insecure/basicdbobject-constructor-map/contacts/search?email=%22%20%7C%7C%20%220%22%20!%3D%20%221">Request</a></td>
+            <td><a href="secure/basicdbobject-constructor-map/contacts/search?email=contact1@private.info">Request</a></td>
+            <td><a href="secure/basicdbobject-constructor-map/contacts/search?email=%22%20%7C%7C%20%220%22%20!%3D%20%221">Request</a></td>
+        </tr>
+        <tr>
+            <td>BasicDBObjectBuilder::add</td>
+            <td></td>
+            <td><a href="insecure/basicdbobjectbuilder-add/contacts/search?email=contact1@private.info">Request</a></td>
+            <td><a href="insecure/basicdbobjectbuilder-add/contacts/search?email=%22%20%7C%7C%20%220%22%20!%3D%20%221">Request</a></td>
+            <td><a href="secure/basicdbobjectbuilder-add/contacts/search?email=contact1@private.info">Request</a></td>
+            <td><a href="secure/basicdbobjectbuilder-add/contacts/search?email=%22%20%7C%7C%20%220%22%20!%3D%20%221">Request</a></td>
+        </tr>
+        <tr>
+            <td>BasicDBObjectBuilder::append</td>
+            <td></td>
+            <td><a href="insecure/basicdbobjectbuilder-append/contacts/search?email=contact1@private.info">Request</a></td>
+            <td><a href="insecure/basicdbobjectbuilder-append/contacts/search?email=%22%20%7C%7C%20%220%22%20!%3D%20%221">Request</a></td>
+            <td><a href="secure/basicdbobjectbuilder-append/contacts/search?email=contact1@private.info">Request</a></td>
+            <td><a href="secure/basicdbobjectbuilder-append/contacts/search?email=%22%20%7C%7C%20%220%22%20!%3D%20%221">Request</a></td>
+        </tr>
+        <tr>
+            <td>BasicDBObjectBuilder::start(String, Object)</td>
+            <td></td>
+            <td><a href="insecure/basicdbobjectbuilder-start-kv/contacts/search?email=contact1@private.info">Request</a></td>
+            <td><a href="insecure/basicdbobjectbuilder-start-kv/contacts/search?email=%22%20%7C%7C%20%220%22%20!%3D%20%221">Request</a></td>
+            <td><a href="secure/basicdbobjectbuilder-start-kv/contacts/search?email=contact1@private.info">Request</a></td>
+            <td><a href="secure/basicdbobjectbuilder-start-kv/contacts/search?email=%22%20%7C%7C%20%220%22%20!%3D%20%221">Request</a></td>
+        </tr>
+        <tr>
+            <td>BasicDBObjectBuilder::start(Map)</td>
+            <td></td>
+            <td><a href="insecure/basicdbobjectbuilder-start-map/contacts/search?email=contact1@private.info">Request</a></td>
+            <td><a href="insecure/basicdbobjectbuilder-start-map/contacts/search?email=%22%20%7C%7C%20%220%22%20!%3D%20%221">Request</a></td>
+            <td><a href="secure/basicdbobjectbuilder-start-map/contacts/search?email=contact1@private.info">Request</a></td>
+            <td><a href="secure/basicdbobjectbuilder-start-map/contacts/search?email=%22%20%7C%7C%20%220%22%20!%3D%20%221">Request</a></td>
+        </tr>
+    </table>
+    <br>
+    <h2>Remediation</h2>
+</body>
+</html>
