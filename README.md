@@ -13,7 +13,7 @@ This edition utilizes MongoDB as the NoSQL database and the official Java driver
 ```
 git clone https://github.com/aabashkin/nosql-injection-vulnapp-mongodb-java.git
 cd nosql-injection-vulnapp-mongodb-java
-mvn clean install
+mvn clean package
 java -jar target/nosql-injection-vulnapp-mongodb-java-[VERSION].jar
 ```
 
