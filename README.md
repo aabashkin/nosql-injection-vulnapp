@@ -22,13 +22,6 @@ java -jar target/nosql-injection-vulnapp-mongodb-java-[VERSION].jar
 Download the latest JAR from the Releases page and run:
 `java -jar nosql-injection-vulnapp-mongodb-java-[VERSION].jar`
 
-## Docker
-
-```
-docker pull aabashkin/nosql-injection-vulnapp-mongodb-java:latest
-docker run aabashkin/nosql-injection-vulnapp-mongodb-java:latest
-```
-
 # Functional Overview
 
 The app allows the user to search their list of contacts by email address. 
