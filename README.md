@@ -8,6 +8,12 @@ This edition utilizes MongoDB as the NoSQL database and the official Java driver
 
 # Setup
 
+## Docker
+```
+docker pull aabashkin/niva
+docker run -p 8080:8080 aabashkin/niva
+```
+
 ## Maven
 
 ```
@@ -59,7 +65,7 @@ The app uses Basic Authentication. Three users are hardcoded:
 
 # Testing 
 Tests are located in the root of the web application:
-`http://localhost:8080/niva/`
+`http://localhost:8080/`
 
 The testing page contains a number of links to both secure and insecure endpoints, with options for both regular expected input as well as an example attack vector:
 

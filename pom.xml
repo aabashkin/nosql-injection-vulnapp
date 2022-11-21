@@ -9,7 +9,7 @@
 	</parent>
 	<groupId>aabashkin</groupId>
 	<artifactId>nosql-injection-vulnapp-mongodb-java</artifactId>
-	<version>1.0.0</version>
+	<version>1.1.0</version>
 	<name>nosql-injection-vulnapp-mongodb-java</name>
 	<description>An app vulnerable to NoSQL injection built with a MongoDB database and the official Java driver</description>
 	<properties>
